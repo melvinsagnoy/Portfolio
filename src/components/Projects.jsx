@@ -29,12 +29,12 @@ const Projects = () => {
       title: 'RoadGuard',
       description:
         'A Capstone Project called A road safety alert mobile app in Cebu City. Users can post road safety alerts, and when a post reaches the desired number of upvotes, it automatically pins the hazard on a real-time map.',
-      technologies: ['React Native', 'Firebase', 'Mapbox', 'Node.js'],
+      technologies: ['React Native', 'Firebase', 'Google Maps', 'Node.js'],
       githubLink: 'https://github.com/melvinsagnoy/ROADGUARD_FINAL_CAPSTONE.git', // Add GitHub link
       screenshots: [roadGuardScreenshot1, roadGuardScreenshot2, roadGuardScreenshot3],
       backgroundImage: icon,
       moreInfo:
-        'RoadGuard helps users navigate safely by identifying road hazards in real-time. It integrates Firebase for real-time updates, Mapbox for mapping, and leverages user interaction to highlight hazards with a crowdsourcing approach.',
+        'RoadGuard helps users navigate safely by identifying road hazards in real-time. It integrates Firebase for real-time updates, Google Maps API for mapping, and leverages user interaction to highlight hazards with a crowdsourcing approach.',
     },
     {
       title: 'Meeting Room Booking System',
