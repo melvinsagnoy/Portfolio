@@ -55,7 +55,7 @@ const Projects = () => {
       description:
         'An IoT-based system designed to monitor the health of elders. The system includes a wearable device for tracking vital signs and a mobile application for real-time monitoring.',
       technologies: ['React Native', 'IoT', 'Firebase'],
-      githubLink: 'https://github.com/username/health-monitoring-app', // Add GitHub link
+      githubLink: 'https://github.com/melvinsagnoy/HealthMonitoringApp.git', // Add GitHub link
       screenshots: [h1, h2, h3], // Add screenshots here when available
       backgroundImage: hicon, // Use a relevant image for the background if available
       moreInfo:
@@ -69,7 +69,7 @@ const Projects = () => {
       description:
         'A web application built using PHP, HTML, and Tailwind CSS that allows students to reserve PCs for sit-in sessions at school, ensuring efficient utilization of resources.',
       technologies: ['PHP', 'HTML', 'Tailwind CSS'],
-      githubLink: 'https://github.com/username/SITIN-Monitoring.git', // Add GitHub link
+      githubLink: 'https://github.com/melvinsagnoy/SITIN_MONITORING.git', // Add GitHub link
       screenshots: [s1, s2, s3], // Update with relevant screenshots
       backgroundImage: sicon, // Use a relevant image for the background if available
       moreInfo:
@@ -83,7 +83,7 @@ const Projects = () => {
   description:
     'A mobile application designed for real-time emergency alerts to locate and dispatch responders during emergencies, ensuring swift action and safety.',
   technologies: ['React Native', 'PHP', 'SQL', 'Google Maps API'],
-  githubLink: 'https://github.com/username/Crimeless.git', // Add GitHub link
+  githubLink: 'https://github.com/melvinsagnoy/CrimelessAdmin.git', // Add GitHub link
       screenshots: [c1, c2, c3], // Update with relevant screenshots
       backgroundImage: cicon, // Use a relevant image for the background if available
       moreInfo:
@@ -110,44 +110,38 @@ const Projects = () => {
           <Briefcase className="w-10 h-10 text-indigo-600 mr-4" />
           <h2 className="text-3xl font-bold text-gray-800">My Projects</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`rounded-xl p-6 shadow-lg transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer relative`}
-              onClick={() => openModal(project)}
+              className="relative rounded-xl p-6 shadow-lg transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer bg-cover bg-center"
               style={{
                 backgroundImage: project.backgroundImage ? `url(${project.backgroundImage})` : undefined,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
               }}
+              onClick={() => openModal(project)}
             >
-              {/* Overlay for more opacity */}
-              {project.backgroundImage && (
-                <div className="absolute inset-0 bg-black bg-opacity-80 rounded-xl"></div>
-              )}
-
+              <div className="absolute inset-0 bg-black bg-opacity-70 rounded-xl"></div>
               <div className="relative z-10">
                 <div className="flex items-center mb-4">
                   <Code className="w-8 h-8 text-indigo-500 mr-3" />
                   <h3 className="text-2xl font-bold text-white">{project.title}</h3>
                 </div>
-                <p className="text-gray-200 mb-4">{project.description}</p>
+                <p className="text-gray-200">{project.description}</p>
                 {project.githubLink && (
                   <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline flex items-center gap-2 mt-2"
+                    className="text-blue-400 hover:underline flex items-center gap-2 mt-4"
                   >
                     <Github className="w-5 h-5" />
                     View on GitHub
                   </a>
                 )}
                 <div className="flex flex-wrap gap-2 mt-4">
-                  {project.technologies.map((tech, techIndex) => (
+                  {project.technologies.map((tech, i) => (
                     <span
-                      key={techIndex}
+                      key={i}
                       className="bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full text-sm"
                     >
                       {tech}
@@ -160,9 +154,8 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full h-[80vh] overflow-y-auto relative">
             <button
               onClick={closeModal}
@@ -172,8 +165,6 @@ const Projects = () => {
             </button>
             <h3 className="text-2xl font-bold mb-4">{selectedProject.title}</h3>
             <p className="text-gray-700 mb-4 whitespace-pre-line">{selectedProject.moreInfo}</p>
-
-            {/* Display GitHub Link in Modal */}
             {selectedProject.githubLink && (
               <a
                 href={selectedProject.githubLink}
@@ -185,31 +176,14 @@ const Projects = () => {
                 View on GitHub
               </a>
             )}
-
-            {/* Display Screenshots */}
-            {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
-              <div className="mb-4 space-y-4">
-                {selectedProject.screenshots.map((screenshot, index) => (
-                  <img
-                    key={index}
-                    src={screenshot}
-                    alt={`${selectedProject.title} Screenshot ${index + 1}`}
-                    className="w-full h-auto rounded-lg"
-                  />
-                ))}
-              </div>
-            )}
-
-            <div className="flex flex-wrap gap-2">
-              {selectedProject.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full text-sm"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+            {selectedProject.screenshots.map((screenshot, index) => (
+              <img
+                key={index}
+                src={screenshot}
+                alt={`${selectedProject.title} Screenshot ${index + 1}`}
+                className="w-full h-auto rounded-lg mb-4"
+              />
+            ))}
           </div>
         </div>
       )}

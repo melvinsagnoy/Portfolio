@@ -10,17 +10,17 @@ import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col items-center">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <br></br>
       <Navbar />
-      <div className="w-full max-w-screen-lg px-4">
-        <Header />
-        <About />
-        <Skills />
-        <Education />
-        <Achievements />
-        <Projects />
-        <Contact />
-      </div>
+      <br></br>
+      <Header />
+      <About />
+      <Skills />
+      <Education />
+      <Achievements />
+      <Projects />
+      <Contact />
     </div>
   );
 }
